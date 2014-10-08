@@ -14,7 +14,11 @@ $basemargin: 15px;
 	display: inline;
 }
 
-
+img {
+	max-width: 100%;
+	min-width: 100%;
+	background-size: cover;
+}
 
 body {
 	background: #000;
@@ -55,6 +59,12 @@ ul {
 			@extend .col-xs-1;
 		}
 	}
+}
+
+
+button {
+	margin: $basemargin*2 auto;
+
 }
 
 .content-wrapper {

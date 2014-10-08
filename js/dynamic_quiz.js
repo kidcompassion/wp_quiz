@@ -1,3 +1,5 @@
+
+
 	
 	var correct = 0; //will hold the total number of correct answers
 	var incorrect = 0; //will hold the total number of incorrect answers
@@ -22,12 +24,12 @@ function Question(full, groupName, firstOption, secondOption, thirdOption, corre
 	this.blurryImageLink = blurryImageLink;
 	this.imageLink = imageLink;
 	this.getInfo = function getInfo(){
-		var details = '<div class="'+this.firstValue+'"><img width="100" height="100" src="'+ this.imageLink+'"/><p>' + this.full + '</p><ul>';
+		var details = '<div class="'+this.firstValue+'"><p>' + this.full + '</p><ul>';
 		details = details + '<li><input type="radio" id="' + this.firstValue + '" name="' + this.groupName + '" value="' + this.firstValue + '"><label for="' + this.firstValue + '">' + this.firstOption + '</label></li>';
 		details = details + '<li><input type="radio" id="' + this.secondValue + '" name="' + this.groupName + '" value="' + this.secondValue + '"><label for="' + this.secondValue + '">' + this.secondOption + '</label></li>';
 		details = details + '<li><input type="radio" id="' + this.thirdValue + '" name="' + this.groupName + '" value="' + this.thirdValue + '"><label for="' + this.thirdValue + '">' + this.thirdOption + '</label></li>';
 		details = details + '</ul>';
-		details = details + '<button type="button" class="radioSubmit btn btn-primary">Submit</submit></div>';
+		details = details + '<button type="button" class="radioSubmit btn btn-primary">Submit <i class="fa fa-chevron-circle-right"></i></button></div>';
 		return details;
 	}
 }
@@ -53,9 +55,9 @@ var questionExcitement = new Question(
 	'Buying my first home',
 	'Independently producing a 6 part news series for Canadian TV',
 	'Having my work appear on Buzzfeed', //correctAnswer
-	'Another in a string of highly intellectual projects', //fullanswer
-	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg',
-	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg'
+	'During last year\'s Oscars, I amused myself by photoshopping Benedict Cumberbatch into <a href="https://twitter.com/SallyPoulsen/status/440343866961444864" target="_blank">images from winning films</a>, and then tweeting them (another in my series of <a href="http://sallypoulsen.com/edited-for-tv-ifier/" target="_blank">highly intellectual personal projects</a>). Much to my delight, one of my images <a href="http://www.buzzfeed.com/tomphillips/pictures-of-benedict-cumberbatch-photobombing-things#3iyir20" target="_blank">wound up on Buzzfeed</a>(#7) There is something magical about doing something to amuse yourself and seeing someone else enjoy it.', //fullanswer
+	'images/cumberbombed.png',
+	'images/cumberbombed.png'
 );
 
 var questionMovie = new Question(
@@ -66,8 +68,8 @@ var questionMovie = new Question(
 	'Mannequin 2',
 	'Police Academy 2', //correct answer
 	'We owned 2 VHS tapes as a kid', //fullAnswer
-	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg',
-	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg'
+	'images/police_academy.jpg',
+	'images/police_academy.jpg'
 );
 
 var questionBooks = new Question(
@@ -78,8 +80,8 @@ var questionBooks = new Question(
 	'55',
 	'55', //correct answer
 	'I am the exact person the amazon one click purchase was made for.', //fullAnswer
-	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg',
-	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg'
+	'images/books.jpg',
+	'images/books.jpg'
 );
 
 var questionSallys = new Question(
@@ -89,9 +91,9 @@ var questionSallys = new Question(
 	'Sally Ride',
 	'Sally Jessy Raphael',
 	'Sally Jessy Raphael',//correct answer
-	'The picture says it all.', //fullAnswer
-	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg',
-	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg'
+	'The picture says it all. (If you\'re interested, here\'s <a href="https://www.youtube.com/watch?v=3xDWBM1N55E&list=UUm2cBYjTZlP9d1atOfdmtxw" target="_blank">the full holiday concert video of me looking, at age 9,  like a 40-something Divorcee with a night job as a Riverboat Blackjack dealer.</a>)', //fullAnswer
+	'images/sallys.jpg',
+	'images/sallys.jpg'
 );
 
 var questionBackpain = new Question(
@@ -101,9 +103,9 @@ var questionBackpain = new Question(
 	'A fall down a half-flight of stairs, age 20',
 	'A belligerent refusal to accept help in carrying a guitar amp, age 25',
 	'Karate high kicks in a Holiday Inn swimming pool, age 29',//correct answer
-	'I don\'t owe you an explanation.', //fullAnswer
-	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg',
-	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg'
+	'<p>I can\'t even really explain this, except to say that I had the pool to myself and it just sort of made sense at the time.</p> <p>To be fair, there is NO WAY this is the weirdest thing to happen in a hotel swimming facility.</p>', //fullAnswer
+	'images/karate-kyle.jpg',
+	'images/karate-kyle.jpg'
 );
 
 var questionKindness = new Question(
@@ -114,8 +116,8 @@ var questionKindness = new Question(
 	'With her yelling at me.',
 	'With her yelling at me.',//correct answer
 	'As I reached out to lower the woman\'s walker off the bus, she paused. Not wanting to jerk her forward, I also paused. This created a stalemate. Clearly having places to go, the woman shouted "Come ON, LET\'S GO!", Diddy-style.', //fullAnswer
-	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg',
-	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg'
+	'images/angry-old-lady.jpg',
+	'images/angry-old-lady.jpg'
 );
 
 var questionFavoritejob = new Question(
@@ -126,8 +128,8 @@ var questionFavoritejob = new Question(
 	'Night editor, A Channel Winnipeg',
 	'The odd combination of web designer and eReader telephone support, Edmonton Public Library.',//correct answer
 	'I was like Samuel L Jackson in the Negotiator. Furious patrons would call up, ready to light their device on fire. But I was the eReader whisperer.', //fullAnswer
-	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg',
-	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg'
+	'images/whisperer.jpg',
+	'images/whisperer.jpg'
 );
 
 var questionActress = new Question(
@@ -138,8 +140,20 @@ var questionActress = new Question(
 	'Character actor Brian Dennehy',
 	'Character actor Brian Dennehy',//correct answer
 	'It\'s hard to get without actually meeting in person - but trust me. I have a lot of gravitas.', //fullAnswer
-	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg',
-	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg'
+	'images/dennehy.jpg',
+	'images/dennehy.jpg'
+);
+
+var questionVince = new Question(
+	'There is a Vince Vaughn movie that brings a tear to my eye, every time, without fail. (Yes, seriously). Is it:',
+	'vince',
+	'The Internship',
+	'Dodgeball',
+	'Old School',
+	'The Internship', //correct answer
+	'The Internship. Gets me. Every. Time. (Fun fact: the <a href="https://www.youtube.com/watch?v=d3U_U_T5CRU" target="_blank">"I\'ve still got some stuff in the basement" speech from Rocky Balboa</a> has the same effect.)', //fullAnswer
+	'images/the_internship.gif',
+	'images/the_internship.gif'
 );
 
 //UTILITY FUNCTIONS
@@ -165,7 +179,7 @@ function shuffle(array) {
 	return array;
 }
 
-	surfacedQuestions = [questionHeadline, questionExcitement, questionMovie, questionBooks, questionSallys, questionBackpain, questionKindness, questionFavoritejob, questionActress];
+	surfacedQuestions = [questionHeadline, questionExcitement, questionMovie, questionBooks, questionSallys, questionBackpain, questionKindness, questionFavoritejob, questionActress, questionVince];
 	shuffle(surfacedQuestions);
 	surfacedQuestions = surfacedQuestions.slice(0, 4);
 	console.log(surfacedQuestions);
@@ -183,13 +197,13 @@ function generator(){
 			if ($('input[type="radio"]:checked').length > 0){
 				if (groupName == thisQuestion.correctAnswer){
 					console.log('you got it');
-					answer = '<img width="100" height="100" src="'+ thisQuestion.blurryImageLink +'"/>';
+					answer = '<img src="'+ thisQuestion.blurryImageLink +'"/>';
 					answer = answer + '<i class="right fa fa-check-circle-o fa-4x"></i><h2>You Got It!</h2>';
 					answer = answer + '<p>' + thisQuestion.fullAnswer + '</p>';
 					correct++;
 				} else {
 					console.log('fail');	
-					answer = '<img width="100" height="100" src="'+ thisQuestion.blurryImageLink +'"/>';	
+					answer = '<img src="'+ thisQuestion.blurryImageLink +'"/>';	
 					answer = answer + '<i class="wrong fa fa-times-circle fa-4x"></i><h2>Sorry, Friend! Wrong Guess!!</h2>';
 					answer = answer + '<p>' + thisQuestion.fullAnswer + '</p>';
 					incorrect++;
@@ -197,16 +211,16 @@ function generator(){
 				clearDiv();
 				$('#question').append(answer);
 
-				var nextButton = '<button type="button" class="btn btn-primary nextOne">Next Question</button>';
+				var nextButton = '<button type="button" class="btn btn-primary nextOne">Next Question <i class="fa fa-chevron-circle-right"></i></button>';
 				if (count == 4) {
-					nextButton = '<button type="button" class="btn btn-primary nextOne">Beer me my results!</button>';
+					nextButton = '<button type="button" class="btn btn-primary nextOne">Beer me my results! <i class="fa fa-chevron-circle-right"></i></button>';
 				}
-				$('#question').append('<div>So far you have ' + correct + ' answer right and ' + incorrect + ' answer wrong.</div>' + nextButton);
+				$('#question').append('<div>So far you have ' + correct + ' right and ' + incorrect + ' wrong.</div>' + nextButton);
 					//Make way for the next question
 					$('.nextOne').click(function(){
 						if (count < 4){
 							count++;
-							$('.questionNumber').empty().append('Question ' + count );
+							$('.questionNumber').empty().append('Question ' + count + ' of 4' );
 						} else {
 							$('.questionNumber').empty().append('Your Results');
 						}
@@ -223,15 +237,11 @@ function generator(){
 	}
 	else {
 		var reloadBtn = '<button type="button" class="btn btn-primary tryagain">Try again</button>';
-		$('.tryagain').click(function(){
-			alert();
-		});
-
 
 		if (correct > 2){
-			$('#question').append('<div>You got ' + correct + ' answers right! You\'re a friggin\' genius! </div>' + reloadBtn);
+			$('#question').append('<div><img src="images/winner.jpg"/>You got ' + correct + ' answers right! YOU GET ME! ...I feel really close to you right now. <img src="images/bro-montana.gif"/> </div>' + reloadBtn);
 		} else {
-			$('#question').append('<div>You only got ' + correct + ' answers right... I feel like you don\'t know me at all. </div>' + reloadBtn);
+			$('#question').append('<div><img src="images/double-facepalm.jpg"/>You only got ' + correct + ' answers right. It\'s as though we\'re complete strangers. </div>' + reloadBtn);
 		}
 
 		$('.tryagain').click(function(){
@@ -241,13 +251,18 @@ function generator(){
 	}
 }
 
-generator();
+//generator();
 
 //Change the header to show which question you're on
 
 
 $(document).ready(function(){
-	$('.questionNumber').append('Question ' + count + ' of 4' );
+	$('.start').click(function(){
+		$('#question').empty();
+		generator();
+		$('.questionNumber').append('Question ' + count + ' of 4' );
+		
+	});
 
 });
 
