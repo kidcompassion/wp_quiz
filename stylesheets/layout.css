@@ -1,0 +1,39 @@
+/*UTILITY STYLES*/
+/* line 3, ../sass/layout.scss */
+.block {
+  display: block;
+}
+
+/* line 7, ../sass/layout.scss */
+.inline {
+  display: inline;
+}
+
+/* line 12, ../sass/layout.scss */
+body {
+  background: #000;
+  color: #fff;
+  font-family: 'Arvo', serif;
+}
+
+/* line 18, ../sass/layout.scss */
+header {
+  background: red;
+}
+/* line 21, ../sass/layout.scss */
+header h2 {
+  font-size: 1rem;
+  font-style: oblique;
+  background: grey;
+}
+/* line 28, ../sass/layout.scss */
+header .questionNumber {
+  font-size: 1rem;
+  font-style: oblique;
+  background: yellow;
+}
+
+/* line 41, ../sass/layout.scss */
+li {
+  list-style-type: none;
+}

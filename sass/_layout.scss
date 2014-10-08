@@ -1,0 +1,46 @@
+@import "bootstrap";
+
+
+/*UTILITY STYLES*/
+
+.block {
+	display: block;
+}
+
+.inline {
+	display: inline;
+}
+
+
+body {
+	background: #000;
+	color: #fff;
+	font-family: 'Arvo', serif;
+}
+
+header {
+	@extend .row;
+	background: red;
+	h2 {
+		font-size: 1rem;
+		font-style: oblique;
+		@extend .col-md-6;
+		@extend .col-xs-6;
+		background: grey;
+	}
+	.questionNumber{
+		font-size: 1rem;
+		font-style: oblique;
+		@extend .col-md-6;
+		@extend .col-xs-6;
+		background: yellow;
+
+	}
+
+}
+
+
+
+li {
+	list-style-type: none;
+}
