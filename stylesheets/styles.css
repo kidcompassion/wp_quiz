@@ -2099,7 +2099,7 @@ pre code {
 }
 
 /* line 11, ../../../../../../RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_grid-framework.scss */
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, header h2, header .questionNumber, .col-sm-6, .col-md-6, header h2, header .questionNumber, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, header h2, header .questionNumber, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, header h2, header .questionNumber, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
@@ -2107,7 +2107,7 @@ pre code {
 }
 
 /* line 27, ../../../../../../RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_grid-framework.scss */
-.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, header h2, header .questionNumber, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, header h2, header .questionNumber, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
   float: left;
 }
 
@@ -2132,12 +2132,12 @@ pre code {
 }
 
 /* line 35, ../../../../../../RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_grid-framework.scss */
-.col-xs-5 {
+.col-xs-5, header h2, header .questionNumber {
   width: 41.6666666667%;
 }
 
 /* line 35, ../../../../../../RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_grid-framework.scss */
-.col-xs-6, header h2, header .questionNumber {
+.col-xs-6 {
   width: 50%;
 }
 
@@ -10134,7 +10134,7 @@ pre code {
 }
 
 /* line 11, ../../../../../../RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_grid-framework.scss */
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, header h2, header .questionNumber, .col-sm-6, .col-md-6, header h2, header .questionNumber, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, header h2, header .questionNumber, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, header h2, header .questionNumber, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
@@ -10142,7 +10142,7 @@ pre code {
 }
 
 /* line 27, ../../../../../../RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_grid-framework.scss */
-.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, header h2, header .questionNumber, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, header h2, header .questionNumber, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
   float: left;
 }
 
@@ -10167,12 +10167,12 @@ pre code {
 }
 
 /* line 35, ../../../../../../RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_grid-framework.scss */
-.col-xs-5 {
+.col-xs-5, header h2, header .questionNumber {
   width: 41.6666666667%;
 }
 
 /* line 35, ../../../../../../RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/mixins/_grid-framework.scss */
-.col-xs-6, header h2, header .questionNumber {
+.col-xs-6 {
   width: 50%;
 }
 
@@ -16069,41 +16069,42 @@ button.close {
   }
 }
 /*UTILITY STYLES*/
-/* line 6, ../sass/_layout.scss */
+/* line 8, ../sass/_layout.scss */
 .block {
   display: block;
 }
 
-/* line 10, ../sass/_layout.scss */
+/* line 12, ../sass/_layout.scss */
 .inline {
   display: inline;
 }
 
-/* line 15, ../sass/_layout.scss */
+/* line 18, ../sass/_layout.scss */
 body {
   background: #000;
   color: #fff;
   font-family: 'Arvo', serif;
 }
 
-/* line 21, ../sass/_layout.scss */
+/* line 24, ../sass/_layout.scss */
 header {
   background: red;
 }
-/* line 24, ../sass/_layout.scss */
+/* line 27, ../sass/_layout.scss */
 header h2 {
   font-size: 1rem;
   font-style: oblique;
   background: grey;
 }
-/* line 31, ../sass/_layout.scss */
+/* line 34, ../sass/_layout.scss */
 header .questionNumber {
   font-size: 1rem;
   font-style: oblique;
+  padding: 20px 0;
   background: yellow;
 }
 
-/* line 44, ../sass/_layout.scss */
+/* line 48, ../sass/_layout.scss */
 li {
   list-style-type: none;
 }

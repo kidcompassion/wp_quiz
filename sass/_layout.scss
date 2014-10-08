@@ -3,6 +3,8 @@
 
 /*UTILITY STYLES*/
 
+$basepadding: 20px;
+
 .block {
 	display: block;
 }
@@ -10,6 +12,7 @@
 .inline {
 	display: inline;
 }
+
 
 
 body {
@@ -25,14 +28,15 @@ header {
 		font-size: 1rem;
 		font-style: oblique;
 		@extend .col-md-6;
-		@extend .col-xs-6;
+		@extend .col-xs-5;
 		background: grey;
 	}
 	.questionNumber{
 		font-size: 1rem;
 		font-style: oblique;
 		@extend .col-md-6;
-		@extend .col-xs-6;
+		@extend .col-xs-5;
+		padding: $basepadding 0;
 		background: yellow;
 
 	}
