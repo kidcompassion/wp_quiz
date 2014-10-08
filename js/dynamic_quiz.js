@@ -8,7 +8,7 @@
 var surfacedQuestions = new Array();
 
 //Create the Question Object
-function Question(full, groupName, firstOption, secondOption, thirdOption, correctAnswer, fullAnswer){
+function Question(full, groupName, firstOption, secondOption, thirdOption, correctAnswer, fullAnswer, blurryImageLink, 	imageLink){
 	this.full = full;
 	this.groupName = groupName;
 	this.firstOption = firstOption;
@@ -19,8 +19,10 @@ function Question(full, groupName, firstOption, secondOption, thirdOption, corre
 	this.thirdValue = thirdOption.replace(/\s/g, "-").toLowerCase();
 	this.correctAnswer = correctAnswer.replace(/\s/g, "-").toLowerCase();
 	this.fullAnswer = fullAnswer;
+	this.blurryImageLink = blurryImageLink;
+	this.imageLink = imageLink;
 	this.getInfo = function getInfo(){
-		var details = '<div class="'+this.firstValue+'"><p>' + this.full + '</p><ul>';
+		var details = '<div class="'+this.firstValue+'"><img width="100" height="100" src="'+ this.imageLink+'"/><p>' + this.full + '</p><ul>';
 		details = details + '<li><input type="radio" id="' + this.firstValue + '" name="' + this.groupName + '" value="' + this.firstValue + '"><label for="' + this.firstValue + '">' + this.firstOption + '</label></li>';
 		details = details + '<li><input type="radio" id="' + this.secondValue + '" name="' + this.groupName + '" value="' + this.secondValue + '"><label for="' + this.secondValue + '">' + this.secondOption + '</label></li>';
 		details = details + '<li><input type="radio" id="' + this.thirdValue + '" name="' + this.groupName + '" value="' + this.thirdValue + '"><label for="' + this.thirdValue + '">' + this.thirdOption + '</label></li>';
@@ -38,7 +40,9 @@ var questionHeadline = new Question(
 	'Private Dancer seeks license to pursue career in taxidermy',
 	'Shark Nearly Chokes to Death on Moose',
 	'Private Dancer seeks license to pursue career in taxidermy',//correct answer
-	'This was my first byline in a major market paper.' //fullAnswer
+	'This was my first byline in a major market paper.', //fullAnswer
+	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg',
+	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg'
 
 );
 
@@ -49,7 +53,9 @@ var questionExcitement = new Question(
 	'Buying my first home',
 	'Independently producing a 6 part news series for Canadian TV',
 	'Having my work appear on Buzzfeed', //correctAnswer
-	'Another in a string of highly intellectual projects' //fullanswer
+	'Another in a string of highly intellectual projects', //fullanswer
+	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg',
+	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg'
 );
 
 var questionMovie = new Question(
@@ -59,7 +65,9 @@ var questionMovie = new Question(
 	'Police Academy 2',
 	'Mannequin 2',
 	'Police Academy 2', //correct answer
-	'We owned 2 VHS tapes as a kid' //fullAnswer
+	'We owned 2 VHS tapes as a kid', //fullAnswer
+	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg',
+	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg'
 );
 
 var questionBooks = new Question(
@@ -69,7 +77,9 @@ var questionBooks = new Question(
 	'35',
 	'55',
 	'55', //correct answer
-	'I am the exact person the amazon one click purchase was made for.' //fullAnswer
+	'I am the exact person the amazon one click purchase was made for.', //fullAnswer
+	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg',
+	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg'
 );
 
 var questionSallys = new Question(
@@ -79,7 +89,9 @@ var questionSallys = new Question(
 	'Sally Ride',
 	'Sally Jessy Raphael',
 	'Sally Jessy Raphael',//correct answer
-	'The picture says it all.' //fullAnswer
+	'The picture says it all.', //fullAnswer
+	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg',
+	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg'
 );
 
 var questionBackpain = new Question(
@@ -89,7 +101,9 @@ var questionBackpain = new Question(
 	'A fall down a half-flight of stairs, age 20',
 	'A belligerent refusal to accept help in carrying a guitar amp, age 25',
 	'Karate high kicks in a Holiday Inn swimming pool, age 29',//correct answer
-	'I don\'t owe you an explanation.' //fullAnswer
+	'I don\'t owe you an explanation.', //fullAnswer
+	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg',
+	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg'
 );
 
 var questionKindness = new Question(
@@ -99,7 +113,9 @@ var questionKindness = new Question(
 	'With an unexpected high-five.',
 	'With her yelling at me.',
 	'With her yelling at me.',//correct answer
-	'As I reached out to lower the woman\'s walker off the bus, she paused. Not wanting to jerk her forward, I also paused. This created a stalemate. Clearly having places to go, the woman shouted "Come ON, LET\'S GO!", Diddy-style.' //fullAnswer
+	'As I reached out to lower the woman\'s walker off the bus, she paused. Not wanting to jerk her forward, I also paused. This created a stalemate. Clearly having places to go, the woman shouted "Come ON, LET\'S GO!", Diddy-style.', //fullAnswer
+	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg',
+	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg'
 );
 
 var questionFavoritejob = new Question(
@@ -109,7 +125,9 @@ var questionFavoritejob = new Question(
 	'Clerk, Video Spot.',
 	'Night editor, A Channel Winnipeg',
 	'The odd combination of web designer and eReader telephone support, Edmonton Public Library.',//correct answer
-	'I was like Samuel L Jackson in the Negotiator. Furious patrons would call up, ready to light their device on fire. But I was the eReader whisperer.' //fullAnswer
+	'I was like Samuel L Jackson in the Negotiator. Furious patrons would call up, ready to light their device on fire. But I was the eReader whisperer.', //fullAnswer
+	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg',
+	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg'
 );
 
 var questionActress = new Question(
@@ -119,7 +137,9 @@ var questionActress = new Question(
 	'Bea Arthur',
 	'Character actor Brian Dennehy',
 	'Character actor Brian Dennehy',//correct answer
-	'It\'s hard to get without actually meeting in person - but trust me. I have a lot of gravitas.' //fullAnswer
+	'It\'s hard to get without actually meeting in person - but trust me. I have a lot of gravitas.', //fullAnswer
+	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg',
+	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg'
 );
 
 //UTILITY FUNCTIONS
@@ -163,12 +183,14 @@ function generator(){
 			if ($('input[type="radio"]:checked').length > 0){
 				if (groupName == thisQuestion.correctAnswer){
 					console.log('you got it');
-					answer = '<i class="right fa fa-check-circle-o fa-4x"></i><h2>You Got It!</h2>';
+					answer = '<img width="100" height="100" src="'+ thisQuestion.blurryImageLink +'"/>';
+					answer = answer + '<i class="right fa fa-check-circle-o fa-4x"></i><h2>You Got It!</h2>';
 					answer = answer + '<p>' + thisQuestion.fullAnswer + '</p>';
 					correct++;
 				} else {
-					console.log('fail');		
-					answer = '<i class="wrong fa fa-times-circle fa-4x"></i><h2>Sorry, Friend! Wrong Guess!!</h2>';
+					console.log('fail');	
+					answer = '<img width="100" height="100" src="'+ thisQuestion.blurryImageLink +'"/>';	
+					answer = answer + '<i class="wrong fa fa-times-circle fa-4x"></i><h2>Sorry, Friend! Wrong Guess!!</h2>';
 					answer = answer + '<p>' + thisQuestion.fullAnswer + '</p>';
 					incorrect++;
 				}
@@ -225,7 +247,7 @@ generator();
 
 
 $(document).ready(function(){
-	$('.questionNumber').append('Question ' + count );
+	$('.questionNumber').append('Question ' + count + ' of 4' );
 
 });
 
