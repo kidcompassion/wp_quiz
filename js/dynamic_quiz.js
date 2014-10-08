@@ -2,12 +2,10 @@
 	var correct = 0; //will hold the total number of correct answers
 	var incorrect = 0; //will hold the total number of incorrect answers
 	var answer;
+	var count = 1;
 
 //create an array to hold the var names for each question
-
 var surfacedQuestions = new Array();
-
-
 
 //Create the Question Object
 function Question(full, groupName, firstOption, secondOption, thirdOption, correctAnswer, fullAnswer){
@@ -23,19 +21,16 @@ function Question(full, groupName, firstOption, secondOption, thirdOption, corre
 	this.fullAnswer = fullAnswer;
 	this.getInfo = function getInfo(){
 		var details = '<div class="'+this.firstValue+'"><p>' + this.full + '</p><ul>';
-		details = details + '<li><input type="radio" name="' + this.groupName + '" value="' + this.firstValue + '"><label for="' + this.firstValue + '">' + this.firstOption + '</label></li>';
-		details = details + '<li><input type="radio" name="' + this.groupName + '" value="' + this.secondValue + '"><label for="' + this.secondValue + '">' + this.secondOption + '</label></li>';
-		details = details + '<li><input type="radio" name="' + this.groupName + '" value="' + this.thirdValue + '"><label for="' + this.thirdValue + '">' + this.thirdOption + '</label></li>';
+		details = details + '<li><input type="radio" id="' + this.firstValue + '" name="' + this.groupName + '" value="' + this.firstValue + '"><label for="' + this.firstValue + '">' + this.firstOption + '</label></li>';
+		details = details + '<li><input type="radio" id="' + this.secondValue + '" name="' + this.groupName + '" value="' + this.secondValue + '"><label for="' + this.secondValue + '">' + this.secondOption + '</label></li>';
+		details = details + '<li><input type="radio" id="' + this.thirdValue + '" name="' + this.groupName + '" value="' + this.thirdValue + '"><label for="' + this.thirdValue + '">' + this.thirdOption + '</label></li>';
 		details = details + '</ul>';
-		details = details + '<button type="button" class="btn btn-primary">Submit</submit></div>';
+		details = details + '<button type="button" class="radioSubmit btn btn-primary">Submit</submit></div>';
 		return details;
 	}
 }
 
-
-
-
-
+//Question Objects
 var questionHeadline = new Question(
 	'I spent several years as a print journalist. Which of these is a real story that I really wrote?',
 	'headline',
@@ -153,7 +148,7 @@ function shuffle(array) {
 	surfacedQuestions = [questionHeadline, questionExcitement, questionMovie, questionBooks, questionSallys, questionBackpain, questionKindness, questionFavoritejob, questionActress];
 	shuffle(surfacedQuestions);
 	surfacedQuestions = surfacedQuestions.slice(0, 4);
-	console.log(surfacedQuestions.length);
+	console.log(surfacedQuestions);
 
 
 //Making the actual questions/answers
@@ -161,46 +156,78 @@ function generator(){
 	if (surfacedQuestions.length > 0){
 		var thisQuestion = surfacedQuestions.shift(); //get whatever turns up first in the array
 		$('#question').append(thisQuestion.getInfo());
-		$('button').click(function(){
+
+		//submit form
+		$('.radioSubmit').click(function(){
 			var groupName = $('input[type="radio"]:checked').val();
-			if (groupName == thisQuestion.correctAnswer){
-				console.log('you got it');
-				answer = '<h2>You Got It!</h2>';
-				answer = answer + '<p>' + thisQuestion.fullAnswer + '</p>';
-				correct++;
-			} else {
-				console.log('fail');		
-				answer = '<h2>Sorry, Friend! Wrong Guess!!</h2>';
-				answer = answer + '<p>' + thisQuestion.fullAnswer + '</p>';
-				incorrect++;
-			}
-			clearDiv();
-			$('#question').append(answer);
-			$('#question').append('<div>So far you have ' + correct + ' answer right and ' + incorrect + ' answer wrong.</div><button type="button" class="btn btn-primary nextOne">Beer me my results!</button>');
-				//Make way for the next question
-				$('.nextOne').click(function(){
+			if ($('input[type="radio"]:checked').length > 0){
+				if (groupName == thisQuestion.correctAnswer){
+					console.log('you got it');
+					answer = '<i class="right fa fa-check-circle-o fa-4x"></i><h2>You Got It!</h2>';
+					answer = answer + '<p>' + thisQuestion.fullAnswer + '</p>';
+					correct++;
+				} else {
+					console.log('fail');		
+					answer = '<i class="wrong fa fa-times-circle fa-4x"></i><h2>Sorry, Friend! Wrong Guess!!</h2>';
+					answer = answer + '<p>' + thisQuestion.fullAnswer + '</p>';
+					incorrect++;
+				}
+				clearDiv();
+				$('#question').append(answer);
+
+				var nextButton = '<button type="button" class="btn btn-primary nextOne">Next Question</button>';
+				if (count == 4) {
+					nextButton = '<button type="button" class="btn btn-primary nextOne">Beer me my results!</button>';
+				}
+				$('#question').append('<div>So far you have ' + correct + ' answer right and ' + incorrect + ' answer wrong.</div>' + nextButton);
+					//Make way for the next question
+					$('.nextOne').click(function(){
+						if (count < 4){
+							count++;
+							$('.questionNumber').empty().append('Question ' + count );
+						} else {
+							$('.questionNumber').empty().append('Your Results');
+						}
 						clearDiv();
 						generator();
-				});
+					});
+			}else {
+				if ($('.content-wrapper .wrong').length == 0){
+					$('.content-wrapper').prepend('<span class="wrong">Pick an answer, silly!</span>');
+				}
+				
+			}
 		});
 	}
 	else {
+		var reloadBtn = '<button type="button" class="btn btn-primary tryagain">Try again</button>';
+		$('.tryagain').click(function(){
+			alert();
+		});
+
+
 		if (correct > 2){
-			$('#question').append('<div>You got ' + correct + ' answers right! You\'re a friggin\' genius!</div>');
+			$('#question').append('<div>You got ' + correct + ' answers right! You\'re a friggin\' genius! </div>' + reloadBtn);
 		} else {
-			$('#question').append('<div>You only got ' + correct + ' answers right... I feel like you don\'t know me at all.</div>');
+			$('#question').append('<div>You only got ' + correct + ' answers right... I feel like you don\'t know me at all. </div>' + reloadBtn);
 		}
+
+		$('.tryagain').click(function(){
+			document.location.reload();
+		});
+
 	}
 }
 
-
-
-
 generator();
 
+//Change the header to show which question you're on
 
 
+$(document).ready(function(){
+	$('.questionNumber').append('Question ' + count );
 
+});
 
 
 

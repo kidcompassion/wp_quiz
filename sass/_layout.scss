@@ -3,7 +3,8 @@
 
 /*UTILITY STYLES*/
 
-$basepadding: 20px;
+$basepadding: 15px;
+$basemargin: 15px;
 
 .block {
 	display: block;
@@ -23,28 +24,54 @@ body {
 
 header {
 	@extend .row;
-	background: red;
 	h2 {
 		font-size: 1rem;
 		font-style: oblique;
 		@extend .col-md-6;
-		@extend .col-xs-5;
-		background: grey;
+		@extend .col-xs-6;
 	}
 	.questionNumber{
 		font-size: 1rem;
 		font-style: oblique;
 		@extend .col-md-6;
-		@extend .col-xs-5;
-		padding: $basepadding 0;
-		background: yellow;
-
+		@extend .col-xs-6;
+		padding: $basepadding;
+		@extend .text-right;
 	}
+}
+
+ul {
+	margin: 0px;
+	padding: 0px;
+	li {
+		list-style-type: none;
+		margin: $basemargin*2 0;
+		label {
+			@extend .col-xs-11;
+			font-weight: normal;
+			font-style: oblique;
+		}
+		input[type="radio"]{
+			@extend .col-xs-1;
+		}
+	}
+}
+
+.content-wrapper {
+	@extend .col-md-6;
+	padding: 0 $basepadding*2;
+	line-height: 2.25rem;
 
 }
 
 
+/* RESULTS
+==========================*/
 
-li {
-	list-style-type: none;
+.wrong {
+	color: red;
+}
+
+.right {
+	color: green;
 }
