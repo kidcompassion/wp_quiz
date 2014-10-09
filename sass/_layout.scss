@@ -5,7 +5,13 @@
 
 $basepadding: 15px;
 $basemargin: 15px;
+.titlecase {
+	text-transform: capitalize;
+}
 
+.bold {
+	font-weight: bold;
+}
 .block {
 	display: block;
 }
@@ -15,30 +21,42 @@ $basemargin: 15px;
 }
 
 img {
-	max-width: 100%;
 	min-width: 100%;
-	background-size: cover;
+	max-width: 100%;
 }
 
 body {
 	background: #000;
+	background-image: url(../images/questionbg.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-width: 100%;
+	max-width: 100%;
+	background-size: cover;
 	color: #fff;
 	font-family: 'Arvo', serif;
 }
 
+h1 {
+	font-size: 2rem;
+}
+
+
 header {
 	@extend .row;
+	padding: $basepadding;
 	h2 {
 		font-size: 1rem;
 		font-style: oblique;
-		@extend .col-md-6;
-		@extend .col-xs-6;
+		@extend .col-md-3; 
+		@extend .col-md-offset-3;
+		@extend .col-xs-7;
 	}
 	.questionNumber{
 		font-size: 1rem;
 		font-style: oblique;
-		@extend .col-md-6;
-		@extend .col-xs-6;
+		@extend .col-md-3;
+		@extend .col-xs-5;
 		padding: $basepadding;
 		@extend .text-right;
 	}
@@ -47,18 +65,27 @@ header {
 ul {
 	margin: 0px;
 	padding: 0px;
+	overflow: hidden;
 	li {
 		list-style-type: none;
-		margin: $basemargin*2 0;
+		overflow:hidden;
+		padding: 10px 0;
 		label {
-			@extend .col-xs-11;
+			width: 90%;
+			padding: 0px 5px;
 			font-weight: normal;
 			font-style: oblique;
 		}
 		input[type="radio"]{
-			@extend .col-xs-1;
+			width: 5%;
+			vertical-align: top;
 		}
 	}
+}
+
+p {
+	font-size: 1.75rem;
+	line-height: 3rem;
 }
 
 
@@ -69,6 +96,7 @@ button {
 
 .content-wrapper {
 	@extend .col-md-6;
+	@extend .col-md-offset-3;
 	padding: 0 $basepadding*2;
 	line-height: 2.25rem;
 
@@ -82,6 +110,32 @@ button {
 	color: red;
 }
 
+.error {
+	padding: $basepadding 0;
+	display: block;
+}
+
 .right {
 	color: green;
+}
+
+.feedback, .results { 
+	clear:both;
+	overflow:hidden;
+	i {
+		float: left;
+		@extend .col-xs-3;
+	}
+	h3 {
+		float: left;
+		padding-left: 10px;
+		margin: 10px 0px;
+		@extend .col-xs-9;
+	}
+}
+
+.description {
+	font-size: 1.25rem;
+	font-weight: 100;
+	line-height: 2rem;
 }

@@ -1,16 +1,15 @@
+/* Quiz v 1.0 */
 
+var correct = 0; //will hold the total number of correct answers
+var incorrect = 0; //will hold the total number of incorrect answers
+var answer; //will eventually hold the correct answer to return
+var count = 1; //will count which question the user is on
 
-	
-	var correct = 0; //will hold the total number of correct answers
-	var incorrect = 0; //will hold the total number of incorrect answers
-	var answer;
-	var count = 1;
-
-//create an array to hold the var names for each question
+//Create an array to hold the var names for each question
 var surfacedQuestions = new Array();
 
 //Create the Question Object
-function Question(full, groupName, firstOption, secondOption, thirdOption, correctAnswer, fullAnswer, blurryImageLink, 	imageLink){
+function Question(full, groupName, firstOption, secondOption, thirdOption, correctAnswer, fullAnswer, blurryImageLink, imageLink){
 	this.full = full;
 	this.groupName = groupName;
 	this.firstOption = firstOption;
@@ -35,51 +34,39 @@ function Question(full, groupName, firstOption, secondOption, thirdOption, corre
 }
 
 //Question Objects
-var questionHeadline = new Question(
-	'I spent several years as a print journalist. Which of these is a real story that I really wrote?',
-	'headline',
-	'Man Arrested with 41 Turtles in his Pants',
-	'Private Dancer seeks license to pursue career in taxidermy',
-	'Shark Nearly Chokes to Death on Moose',
-	'Private Dancer seeks license to pursue career in taxidermy',//correct answer
-	'This was my first byline in a major market paper.', //fullAnswer
-	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg',
-	'http://i.dailymail.co.uk/i/pix/2011/01/18/article-1348226-0CD00576000005DC-256_634x524.jpg'
-
-);
 
 var questionExcitement = new Question(
 	'Which of these accomplishments was I most excited about?',
 	'excitement',
-	'Having my work appear on Buzzfeed',
+	'Having something I made appear on Buzzfeed',
 	'Buying my first home',
 	'Independently producing a 6 part news series for Canadian TV',
-	'Having my work appear on Buzzfeed', //correctAnswer
-	'During last year\'s Oscars, I amused myself by photoshopping Benedict Cumberbatch into <a href="https://twitter.com/SallyPoulsen/status/440343866961444864" target="_blank">images from winning films</a>, and then tweeting them (another in my series of <a href="http://sallypoulsen.com/edited-for-tv-ifier/" target="_blank">highly intellectual personal projects</a>). Much to my delight, one of my images <a href="http://www.buzzfeed.com/tomphillips/pictures-of-benedict-cumberbatch-photobombing-things#3iyir20" target="_blank">wound up on Buzzfeed</a>(#7) There is something magical about doing something to amuse yourself and seeing someone else enjoy it.', //fullanswer
+	'Having something I made appear on Buzzfeed', //correctAnswer
+	'During last year\'s Oscars, I amused myself by photoshopping Benedict Cumberbatch into <a href="https://twitter.com/SallyPoulsen/status/440343866961444864" target="_blank">images from winning films</a>, and then tweeting them (another in my series of <a href="http://sallypoulsen.com/edited-for-tv-ifier/" target="_blank">highly intellectual personal projects</a>). <br /> Much to my delight, one of my images <a href="http://www.buzzfeed.com/tomphillips/pictures-of-benedict-cumberbatch-photobombing-things#3iyir20" target="_blank">wound up on Buzzfeed</a>(#7). ', //fullanswer
 	'images/cumberbombed.png',
 	'images/cumberbombed.png'
 );
 
 var questionMovie = new Question(
-	'My friend has a theory: your favorite movie isn\'t what you would claim it is, but whatever you have seen the most times. Using this logic, is my favorite movie:',
+	'A friend of mine has a theory: your favorite movie isn\'t what you SAY it is, but whatever you have seen the most times. Using this logic, is my favorite movie:',
 	'movie',
 	'Weekend at Bernie\'s 2',
 	'Police Academy 2',
 	'Mannequin 2',
 	'Police Academy 2', //correct answer
-	'We owned 2 VHS tapes as a kid', //fullAnswer
+	'When I was 8, I decided I wanted to be able to say I had seen a movie 100 times. So I watched our VHS copy of Police Academy over and over and over again, making it my \'favorite\' movie to this day.', //fullAnswer
 	'images/police_academy.jpg',
 	'images/police_academy.jpg'
 );
 
 var questionBooks = new Question(
-	'I\'m a serious book hoarder. What horrifying number of books have I accumulated in my to be read pile?',
+	'I\'m a serious book hoarder. What horrifying number of books have I accumulated in my to-be-read pile?',
 	'books',
-	'20',
-	'35',
-	'55',
-	'55', //correct answer
-	'I am the exact person the amazon one click purchase was made for.', //fullAnswer
+	'20 Books',
+	'35 Books',
+	'55 Books',
+	'55 Books', //correct answer
+	'Yes, I am the exact person the Amazon one-click purchase was made for. (And technically, it\'s now 56, since I just bought <a href="http://www.amazon.ca/How-Google-Works-Eric-Schmidt/dp/1455582344">How Google Works</a>.', //fullAnswer
 	'images/books.jpg',
 	'images/books.jpg'
 );
@@ -179,43 +166,49 @@ function shuffle(array) {
 	return array;
 }
 
-	surfacedQuestions = [questionHeadline, questionExcitement, questionMovie, questionBooks, questionSallys, questionBackpain, questionKindness, questionFavoritejob, questionActress, questionVince];
-	shuffle(surfacedQuestions);
-	surfacedQuestions = surfacedQuestions.slice(0, 4);
-	console.log(surfacedQuestions);
+//Create array of objects to go through
+surfacedQuestions = [questionExcitement, questionMovie, questionBooks, questionSallys, questionBackpain, questionKindness, questionFavoritejob, questionActress, questionVince];
+//Shuffle the objects
+shuffle(surfacedQuestions);
+//Pick the first 4 post-shuffle
+surfacedQuestions = surfacedQuestions.slice(0, 4);
 
-
-//Making the actual questions/answers
+//Generate the actual questions/answers
 function generator(){
-	if (surfacedQuestions.length > 0){
+	if (surfacedQuestions.length > 0){ //if there are questions
 		var thisQuestion = surfacedQuestions.shift(); //get whatever turns up first in the array
 		$('#question').append(thisQuestion.getInfo());
-
-		//submit form
+		//Submit answer
 		$('.radioSubmit').click(function(){
 			var groupName = $('input[type="radio"]:checked').val();
 			if ($('input[type="radio"]:checked').length > 0){
 				if (groupName == thisQuestion.correctAnswer){
-					console.log('you got it');
-					answer = '<img src="'+ thisQuestion.blurryImageLink +'"/>';
-					answer = answer + '<i class="right fa fa-check-circle-o fa-4x"></i><h2>You Got It!</h2>';
-					answer = answer + '<p>' + thisQuestion.fullAnswer + '</p>';
+					answer = '<div class="feedback">';
+					answer = answer + '<i class="right fa fa-check-circle-o fa-3x"></i><h3>You Got It!</h3></div>';
+					answer = answer + '<img src="'+ thisQuestion.blurryImageLink +'"/>';
+					answer = answer + '<p>The Right Answer:<br/> <span class="titlecase bold right text-center">' + thisQuestion.correctAnswer.replace(/-/g, " ") + '</p>';
+					answer = answer + '<p class="description">' + thisQuestion.fullAnswer + '</p>';
 					correct++;
 				} else {
-					console.log('fail');	
-					answer = '<img src="'+ thisQuestion.blurryImageLink +'"/>';	
-					answer = answer + '<i class="wrong fa fa-times-circle fa-4x"></i><h2>Sorry, Friend! Wrong Guess!!</h2>';
-					answer = answer + '<p>' + thisQuestion.fullAnswer + '</p>';
+					answer = '<div class="feedback">';	
+					answer = answer + '<i class="wrong fa fa-times-circle fa-3x"></i><h3>Ooh, so close!</h3></div>';
+					answer = answer + '<img src="'+ thisQuestion.blurryImageLink +'"/>';
+					answer = answer + '<p>The Right Answer:<br /> <span class="titlecase bold right">' + thisQuestion.correctAnswer.replace(/-/g, " ") + '</span></p>';
+					answer = answer + '<p class="description">' + thisQuestion.fullAnswer + '</p>';
 					incorrect++;
 				}
 				clearDiv();
+
+				//Print the appropariate answer
 				$('#question').append(answer);
 
+				//Create the "next" button, dependant on which question we're on
 				var nextButton = '<button type="button" class="btn btn-primary nextOne">Next Question <i class="fa fa-chevron-circle-right"></i></button>';
 				if (count == 4) {
 					nextButton = '<button type="button" class="btn btn-primary nextOne">Beer me my results! <i class="fa fa-chevron-circle-right"></i></button>';
 				}
-				$('#question').append('<div>So far you have ' + correct + ' right and ' + incorrect + ' wrong.</div>' + nextButton);
+
+				$('#question').append('<div><em>So far, you have ' + correct + ' right and ' + incorrect + ' wrong.</em></div>' + nextButton);
 					//Make way for the next question
 					$('.nextOne').click(function(){
 						if (count < 4){
@@ -229,7 +222,7 @@ function generator(){
 					});
 			}else {
 				if ($('.content-wrapper .wrong').length == 0){
-					$('.content-wrapper').prepend('<span class="wrong">Pick an answer, silly!</span>');
+					$('.content-wrapper').prepend('<span class="error wrong">You didn\'t pick an answer, silly!</span>');
 				}
 				
 			}
@@ -239,9 +232,9 @@ function generator(){
 		var reloadBtn = '<button type="button" class="btn btn-primary tryagain">Try again</button>';
 
 		if (correct > 2){
-			$('#question').append('<div><img src="images/winner.jpg"/>You got ' + correct + ' answers right! YOU GET ME! ...I feel really close to you right now. <img src="images/bro-montana.gif"/> </div>' + reloadBtn);
+			$('#question').append('<div class="results"><i class="fa right fa-thumbs-o-up fa-4x"></i><h3>You + Me = BFFs</h3><img src="images/bro-montana.gif"/><p>You got ' + correct + ' answers right!</p> <p>YOU GET ME!</p></div>' + reloadBtn);
 		} else {
-			$('#question').append('<div><img src="images/double-facepalm.jpg"/>You only got ' + correct + ' answers right. It\'s as though we\'re complete strangers. </div>' + reloadBtn);
+			$('#question').append('<div class="results"><i class="fa wrong fa-thumbs-o-down fa-4x"></i><h3>You Don\'t Get Me at All</h3><img src="images/double-facepalm.jpg"/><p>You only got ' + correct + ' answers right.</p> <p>It\'s as though we\'re complete strangers.</p> </div>' + reloadBtn);
 		}
 
 		$('.tryagain').click(function(){
@@ -261,127 +254,8 @@ $(document).ready(function(){
 		$('#question').empty();
 		generator();
 		$('.questionNumber').append('Question ' + count + ' of 4' );
+		$('header h2').append('Get to Know Sally <span class="wrong">BETA</span>');
 		
 	});
 
 });
-
-
-
-
-
-//alert(question.getInfo());
-
-//question/answer object
-/*
-var question_1 = {
-	title: 'Question 1',
-	full: 'I spent several years as a print journalist. Which of these is a real story that I really wrote?',
-	optionOne: 'Man Arrested with 41 Turtles in his Pants',
-	optionTwo: 'Private Dancer seeks license to pursue career in taxidermy',
-	optionThree: 'Shark Nearly Chokes to Death on Moose',
-	correctAnswer: optionTwo,
-	correctMsg: 'Good job!',
-	incorrectMsg: 'Sorry!',
-	currentTotal: '<div>So far you have ' + correct + ' answer right and ' + incorrect + ' answer wrong.</div>',
-}
-var question_2 = {
-	title: 'Question 2',
-	full: 'Which of these accomplishments was I most excited about?',
-	optionOne: 'Having my work appear on Buzzfeed',
-	optionTwo: 'Buying my first home',
-	optionThree: 'Independently producing a 6 part news series for Canadian TV',
-	correctAnswer: optionOne,
-	correctMsg: 'Good job',
-	incorrectMsg: 'Fail',
-	currentTotal: '<div>So far you have ' + correct + ' answer right and ' + incorrect + ' answer wrong.</div>',
-}
-var question_3 = {
-	title: 'Question 3',
-	full: 'My friend has a theory: your favorite movie is ACTUALLY whatever you have seen the most times, not what you say it is. Using this logic, is my favorite movie:',
-	optionOne: 'Ski School 2',
-	optionTwo: 'Weekend at Bernies 2',
-	optionThree: 'Police Academy 2',
-	correctAnswer: optionThree,
-	correctMsg: 'Good job',
-	incorrectMsg: 'Fail',
-	currentTotal: '<div>So far you have ' + correct + ' answer right and ' + incorrect + ' answer wrong.</div>',
-}
-var question_4 = {
-	title: 'Question 4',
-	full: 'I\'m a serious book hoarder. How many titles do I have backed up as a result of Amazon\'s cursed one-click purchase?',
-	optionOne: '18',
-	optionTwo: '29',
-	optionThree: '58',
-	correctAnswer: optionThree,
-	correctMsg: 'Good job',
-	incorrectMsg: 'Fail',
-	currentTotal: '<div>So far you have ' + correct + ' answer right and ' + incorrect + ' answer wrong.</div>',
-}
-var question_5 = {
-	title: 'Question 5',
-	full: 'Which popular 80s, and shared namesake, was I often compared to in my tween years?',
-	optionOne: 'Sally Ride',
-	optionTwo: 'Sally Jessy Raphael',
-	optionThree: 'Sally Field',
-	correctAnswer: optionTwo,
-	correctMsg: 'Good job',
-	incorrectMsg: 'Fail',
-	currentTotal: '<div>So far you have ' + correct + ' answer right and ' + incorrect + ' answer wrong.</div>',
-}
-var question_6 = {
-	title: 'Question 6',
-	full: 'Which job is the one I call my all time favorite?',
-	optionOne: 'Web Designer, Edmonton Public Library',
-	optionTwo: 'Sandwich Artist, Subway',
-	optionThree: 'Post-production Editor, CityTV Edmonton',
-	correctAnswer: optionOne,
-	correctMsg: 'Good job',
-	incorrectMsg: 'Fail',
-	currentTotal: '<div>So far you have ' + correct + ' answer right and ' + incorrect + ' answer wrong.</div>',
-}/*
-var question_7 = {
-	title: 'Question 7',
-	full: 'This is the question.',
-	optionOne: 'Answer one',
-	optionTwo: 'Answer Two',
-	optionThree: 'Answer Three',
-	correctAnswer: 'Good job!',
-	correctMsg: 'Good job',
-	incorrectMsg: 'Fail',
-	currentTotal: '<div>So far you have ' + correct + ' answer right and ' + incorrect + ' answer wrong.</div>',
-}
-var question_8 = {
-	title: 'Question 8',
-	full: 'This is the question.',
-	optionOne: 'Answer one',
-	optionTwo: 'Answer Two',
-	optionThree: 'Answer Three',
-	correctAnswer: 'Good job!',
-	correctMsg: 'Good job',
-	incorrectMsg: 'Fail',
-	currentTotal: '<div>So far you have ' + correct + ' answer right and ' + incorrect + ' answer wrong.</div>',
-}
-var question_9 = {
-	title: 'Question 9',
-	full: 'This is the question.',
-	optionOne: 'Answer one',
-	optionTwo: 'Answer Two',
-	optionThree: 'Answer Three',
-	correctAnswer: 'Good job!',
-	correctMsg: 'Good job',
-	incorrectMsg: 'Fail',
-	currentTotal: '<div>So far you have ' + correct + ' answer right and ' + incorrect + ' answer wrong.</div>',
-}
-var question_10 = {
-	title: 'Question 10',
-	full: 'This is the question.',
-	optionOne: 'Answer one',
-	optionTwo: 'Answer Two',
-	optionThree: 'Answer Three',
-	correctAnswer: 'Good job!',
-	correctMsg: 'Good job',
-	incorrectMsg: 'Fail',
-	currentTotal: '<div>So far you have ' + correct + ' answer right and ' + incorrect + ' answer wrong.</div>',
-}
-*/
