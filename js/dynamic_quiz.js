@@ -90,19 +90,19 @@ var questionBackpain = new Question(
 	'A fall down a half-flight of stairs, age 20',
 	'A belligerent refusal to accept help in carrying a guitar amp, age 25',
 	'Karate high kicks in a Holiday Inn swimming pool, age 29',//correct answer
-	'<p>I can\'t even really explain this, except to say that I had the pool to myself and it just sort of made sense at the time.</p> <p>To be fair, there is NO WAY this is the weirdest thing to happen in a hotel swimming facility.</p>', //fullAnswer
+	'I can\'t even really explain this, except to say that I had the pool to myself and it just sort of made sense at the time.', //fullAnswer
 	'images/karate-kyle.jpg',
 	'images/karate-kyle.jpg'
 );
 
 var questionKindness = new Question(
-	'I am frequently approached on the street by people needing help - whether it\'s to know the time, get directions, or something else (I think I just have that kind of a face). On one memorable occasion, a tiny elderly woman was getting off a city bus and gestured for me to help carry her walker to the street. How did this meeting end?',
+	'On the street, I\'m often approached by people needing help - whether it\'s to know the time, get directions, or something else. <br />On one memorable occasion, a tiny elderly woman was getting off a city bus and gestured for me to help carry her walker to the street. How did this meeting end?',
 	'kindness',
-	'With milk and cookies at her apartment.',
-	'With an unexpected high-five.',
-	'With her yelling at me.',
-	'With her yelling at me.',//correct answer
-	'As I reached out to lower the woman\'s walker off the bus, she paused. Not wanting to jerk her forward, I also paused. This created a stalemate. Clearly having places to go, the woman shouted "Come ON, LET\'S GO!", Diddy-style.', //fullAnswer
+	'With milk and cookies at her apartment',
+	'With an unexpected high-five',
+	'With her yelling at me',
+	'With her yelling at me',//correct answer
+	'As I reached out to lower the woman\'s walker off the bus, she paused. Not wanting to yank her into the street, I also paused. This created a stalemate, which prompted her to shout "Well, COME ON! LET\'S GOOOOO!", Diddy-style.', //fullAnswer
 	'images/angry-old-lady.jpg',
 	'images/angry-old-lady.jpg'
 );
@@ -110,11 +110,11 @@ var questionKindness = new Question(
 var questionFavoritejob = new Question(
 	'My career has had a lot of unexpected twists and turns. Of all my jobs to date, though, which one was my favorite?',
 	'favoritejob',
-	'The odd combination of web designer and eReader telephone support, Edmonton Public Library.',
-	'Clerk, Video Spot.',
+	'The odd combination of web designer and eReader telephone support, Edmonton Public Library',
+	'Clerk, Video Spot',
 	'Night editor, A Channel Winnipeg',
 	'The odd combination of web designer and eReader telephone support, Edmonton Public Library.',//correct answer
-	'I was like Samuel L Jackson in the Negotiator. Furious patrons would call up, ready to light their device on fire. But I was the eReader whisperer.', //fullAnswer
+	'Move over, Samuel L. Jackson in the Negotiator. In the early days of EPL offering digital materials, I fielded all range of calls from patrons - furious, confused, desperate. I talked them in off ledges and developed a near encyclopedic knowledge of (now obsolete) eReaders in the process. Just call me the Sony PRS-T3 Whisperer.', //fullAnswer
 	'images/whisperer.jpg',
 	'images/whisperer.jpg'
 );
@@ -122,7 +122,7 @@ var questionFavoritejob = new Question(
 var questionActress = new Question(
 	'Lifetime TV Canada is casting a terrible Canadian TV movie version of my life. Who plays me?',
 	'actress',
-	'Angelina Jolie.',
+	'Angelina Jolie',
 	'Bea Arthur',
 	'Character actor Brian Dennehy',
 	'Character actor Brian Dennehy',//correct answer
@@ -183,17 +183,17 @@ function generator(){
 			var groupName = $('input[type="radio"]:checked').val();
 			if ($('input[type="radio"]:checked').length > 0){
 				if (groupName == thisQuestion.correctAnswer){
-					answer = '<div class="feedback">';
+					answer = '<div class="col-sm-6"><div class="feedback">';
 					answer = answer + '<i class="right fa fa-check-circle-o fa-3x"></i><h3>You Got It!</h3></div>';
-					answer = answer + '<img src="'+ thisQuestion.blurryImageLink +'"/>';
-					answer = answer + '<p>The Right Answer:<br/> <span class="titlecase bold right text-center">' + thisQuestion.correctAnswer.replace(/-/g, " ") + '</p>';
+					answer = answer + '<img src="'+ thisQuestion.blurryImageLink +'"/></div>';
+					answer = answer + '<div class="col-sm-6"><p>The Right Answer:<br/> <span class="titlecase right text-center">' + thisQuestion.correctAnswer.replace(/-/g, " ") + '</p>';
 					answer = answer + '<p class="description">' + thisQuestion.fullAnswer + '</p>';
 					correct++;
 				} else {
-					answer = '<div class="feedback">';	
+					answer = '<div class="col-sm-6"><div class="feedback">';	
 					answer = answer + '<i class="wrong fa fa-times-circle fa-3x"></i><h3>Ooh, so close!</h3></div>';
-					answer = answer + '<img src="'+ thisQuestion.blurryImageLink +'"/>';
-					answer = answer + '<p>The Right Answer:<br /> <span class="titlecase bold right">' + thisQuestion.correctAnswer.replace(/-/g, " ") + '</span></p>';
+					answer = answer + '<img src="'+ thisQuestion.blurryImageLink +'"/></div>';
+					answer = answer + '<div class="col-sm-6"><p>The Right Answer:<br /> <span class="titlecase right">' + thisQuestion.correctAnswer.replace(/-/g, " ") + '</span></p>';
 					answer = answer + '<p class="description">' + thisQuestion.fullAnswer + '</p>';
 					incorrect++;
 				}
@@ -208,7 +208,7 @@ function generator(){
 					nextButton = '<button type="button" class="btn btn-primary nextOne">Beer me my results! <i class="fa fa-chevron-circle-right"></i></button>';
 				}
 
-				$('#question').append('<div><em>So far, you have ' + correct + ' right and ' + incorrect + ' wrong.</em></div>' + nextButton);
+				$('#question').append('<div class="row"><div class="basepadding col-sm-12 text-center"><em>So far, you have ' + correct + ' right and ' + incorrect + ' wrong.</em><br/>' + nextButton + '</div></div>');
 					//Make way for the next question
 					$('.nextOne').click(function(){
 						if (count < 4){
@@ -234,9 +234,8 @@ function generator(){
 		if (correct > 2){
 			$('#question').append('<div class="results"><i class="fa right fa-thumbs-o-up fa-4x"></i><h3>You + Me = BFFs</h3><img src="images/bro-montana.gif"/><p>You got ' + correct + ' answers right!</p> <p>YOU GET ME!</p></div>' + reloadBtn);
 		} else {
-			$('#question').append('<div class="results"><i class="fa wrong fa-thumbs-o-down fa-4x"></i><h3>You Don\'t Get Me at All</h3><img src="images/double-facepalm.jpg"/><p>You only got ' + correct + ' answers right.</p> <p>It\'s as though we\'re complete strangers.</p> </div>' + reloadBtn);
+			$('#question').append('<div class="results"><i class="fa wrong fa-thumbs-o-down fa-4x"></i><h3>You Don\'t Get Me at All</h3><img src="images/double-facepalm.jpg"/><p>You only got ' + correct + ' answers right.</p> <p>...It\'s as though we\'re complete strangers.</p> </div>' + reloadBtn);
 		}
-
 		$('.tryagain').click(function(){
 			document.location.reload();
 		});
@@ -244,10 +243,7 @@ function generator(){
 	}
 }
 
-//generator();
-
 //Change the header to show which question you're on
-
 
 $(document).ready(function(){
 	$('.start').click(function(){
@@ -255,6 +251,11 @@ $(document).ready(function(){
 		generator();
 		$('.questionNumber').append('Question ' + count + ' of 4' );
 		$('header h2').append('Get to Know Sally <span class="wrong">BETA</span>');
+		$('body').css({
+			'background-image': 'url(images/bg.jpg)',
+			'background-repeat': 'repeat'
+		});
+		$('footer').css('background', 'none');
 		
 	});
 

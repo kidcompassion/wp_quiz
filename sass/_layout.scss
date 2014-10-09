@@ -5,6 +5,11 @@
 
 $basepadding: 15px;
 $basemargin: 15px;
+
+
+.basepadding {
+	padding: $basepadding*2 0;
+}
 .titlecase {
 	text-transform: capitalize;
 }
@@ -25,20 +30,25 @@ img {
 	max-width: 100%;
 }
 
+
+.logo {
+	margin: 0 auto;	
+	display: block;
+}
+
+
 body {
 	background: #000;
-	background-image: url(../images/questionbg.jpg);
+	background-image: url(../images/splash.jpg);
 	background-repeat: no-repeat;
-	background-size: cover;
-	min-width: 100%;
-	max-width: 100%;
-	background-size: cover;
+	background-position: center top;
 	color: #fff;
 	font-family: 'Arvo', serif;
 }
 
 h1 {
 	font-size: 2rem;
+	font-family: 'Coustard', serif;
 }
 
 
@@ -51,6 +61,7 @@ header {
 		@extend .col-md-3; 
 		@extend .col-md-offset-3;
 		@extend .col-xs-7;
+		font-family: 'Coustard', serif;
 	}
 	.questionNumber{
 		font-size: 1rem;
@@ -91,6 +102,8 @@ p {
 
 button {
 	margin: $basemargin*2 auto;
+	padding: $basepadding/2 $basepadding*3 !important;
+	display: block !important;
 
 }
 
@@ -100,6 +113,10 @@ button {
 	padding: 0 $basepadding*2;
 	line-height: 2.25rem;
 
+}
+
+footer {
+	height: 100px;
 }
 
 
@@ -131,6 +148,7 @@ button {
 		padding-left: 10px;
 		margin: 10px 0px;
 		@extend .col-xs-9;
+		font-family: 'Coustard', serif;
 	}
 }
 
@@ -138,4 +156,41 @@ button {
 	font-size: 1.25rem;
 	font-weight: 100;
 	line-height: 2rem;
+}
+
+
+
+@media(min-width:768px){
+	body {
+		background-size: cover;
+		height: 100%;
+	}
+	.logo {
+		max-width: 35% !important;
+		min-width: 35% !important;
+		margin: 0 auto !important;
+	}
+	footer {
+		background: -moz-linear-gradient(top,  rgba(0,0,0,0) 11%, rgba(0,0,0,0.16) 20%, rgba(0,0,0,0.47) 37%, rgba(0,0,0,0.65) 47%, rgba(0,0,0,1) 96%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(11%,rgba(0,0,0,0)), color-stop(20%,rgba(0,0,0,0.16)), color-stop(37%,rgba(0,0,0,0.47)), color-stop(47%,rgba(0,0,0,0.65)), color-stop(96%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 11%,rgba(0,0,0,0.16) 20%,rgba(0,0,0,0.47) 37%,rgba(0,0,0,0.65) 47%,rgba(0,0,0,1) 96%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(0,0,0,0) 11%,rgba(0,0,0,0.16) 20%,rgba(0,0,0,0.47) 37%,rgba(0,0,0,0.65) 47%,rgba(0,0,0,1) 96%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(0,0,0,0) 11%,rgba(0,0,0,0.16) 20%,rgba(0,0,0,0.47) 37%,rgba(0,0,0,0.65) 47%,rgba(0,0,0,1) 96%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(0,0,0,0) 11%,rgba(0,0,0,0.16) 20%,rgba(0,0,0,0.47) 37%,rgba(0,0,0,0.65) 47%,rgba(0,0,0,1) 96%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+
+	}
+}
+@media(min-width:992px){
+
+	footer {
+		background: none;
+	}
+
+}
+@media(min-width:1200px){
+	footer {
+		background: none;
+	}
+
 }
